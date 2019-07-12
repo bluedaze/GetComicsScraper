@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+import time
 
 page = requests.get('https://getcomics.info/sitemap/')
 soup = BeautifulSoup(page.text, 'lxml')
@@ -26,7 +27,50 @@ def link_grabber():
     outfile = open("comiclinkreport.txt", "a+")
     for item in comics:
         outfile.write(item + "\n")
+    time.sleep(1.5)
+    print("\nYour links have been collated into a file in your current working directory")
+    time.sleep(1.5)
 
-    print("Your links have been collated into a file in your current working directory")
+url = ("https://getcomics.info/sitemap/?lcp_page0=")
 
-link_grabber()
+links = []
+count = 0
+for item in range(77):
+    count = count + 1
+    link = url+str(count)
+    links.append(link)
+
+for address in links:
+    nextpage = requests.get(address)
+    soup = BeautifulSoup(page.text, 'lxml')
+    print("\nWe have navigated to the next page\n")
+    print("\n\tCurrent page: ", address)
+    print("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+    time.sleep(1.5)
+    link_grabber()
+    print("\nzzZzzZz\n")
+    time.sleep(1)
+    print("S", end = "")
+    time.sleep(1)
+    print("l", end = "")
+    time.sleep(1)
+    print("e", end = "")
+    time.sleep(1)
+    print("e", end = "")
+    time.sleep(1)
+    print("p", end = "")
+    time.sleep(1)
+    print("i", end = "")
+    time.sleep(1)
+    print("n", end = "")
+    time.sleep(1)
+    print("g", end = "")
+    time.sleep(1)
+    print(".", end = "")
+    time.sleep(1)
+    print(".", end = "")
+    time.sleep(1)
+    print(".", end = "")
+    time.sleep(1)
+    print("\n\n")
+    time.sleep(2)
