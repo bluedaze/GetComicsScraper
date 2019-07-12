@@ -1,2 +1,1 @@
-# getcomics.info-scraper.py
-This script grabs all the links from the first page of the download list on getcomics.info
+This part of a project which is designed to preserve comics that are posted on getcomics.info.
