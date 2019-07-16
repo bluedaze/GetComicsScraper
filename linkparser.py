@@ -35,7 +35,7 @@ def load_list():
 def delete_downloaded_item():
 
     links.pop(0)
-
+    
     #opens file and deletes contents
     open("comic_urls.txt", "w").close()
 
