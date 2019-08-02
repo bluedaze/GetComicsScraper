@@ -1,6 +1,3 @@
-# TO DO:
-# Write a function which checks for file on 32pag.es
-
 import requests
 from bs4 import BeautifulSoup
 import time
