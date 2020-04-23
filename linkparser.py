@@ -44,21 +44,20 @@ def fetch_download():
             outfile.write(link + "\n")
         time.sleep(3)
     
-    attempts = 0
-    success = False
     for link in advance:
         page = requests.get(link)
         soup = BeautifulSoup(page.text, "html.parser")
         
-    while attempts < 3 and not success:
+    attempts = 0
+    while attempts < 3:
+        attempts += 1
         try:
             comic_title = soup.find("h1", class_="post-title").get_text()
             print("\n\nGoing to download link...\n\n")
-            success = True
+            break
         except:
             print("There seems to be an issue rendering this page correctly.",
-                  "Attempting to retry. Retry " + attempt + " of 3 times")
-            attempts = attempt + 1
+                  "Attempting to retry. Retry " + str(attempts) + " of 3 times")
 
     current_title = "Saving the current title: " + str(comic_title) + "\n\n"
     
